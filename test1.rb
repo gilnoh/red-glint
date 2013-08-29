@@ -41,3 +41,7 @@ diff_2_3 = t3 - t2
 diff_1_3 = t3 - t1 
 $stderr.puts "Time took for printing: #{diff_2_3}" 
 $stderr.puts "Total, it took: #{diff_1_3}"
+
+
+## remark
+## not a bad idea, neat code. but takes too much memory. 
