@@ -3,7 +3,7 @@ red-glint
 
 It contains some scripts designed to handle big matrix. The goal here is generating 2nd-order (smoothed) matrix. 
 
-Terminology
+* Terminology
 - e-f-s file: file that holds element-feature (vector) matrix. Here, it refers to a specific file format that holds many line where each line has the format of"element \t feature \t score \n". 
 
 * List of the test scripts: 
@@ -15,3 +15,8 @@ Terminology
 
 * The main scripts: 
 (will package some of the test scripts into this, when finished. ... when?) 
+
+
+* Things to consider? 
+- using BinData 
+- 

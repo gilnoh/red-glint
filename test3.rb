@@ -78,7 +78,8 @@ end
   # index:val format 
   print "#{i}\t\t"
   result_B_vec.keys.sort.each do |k|
-    print "#{k}:#{result_B_vec[k]}\t"
+    #print "#{k}:#{result_B_vec[k]}\t"
+    printf "%d:%.2f\t", k, result_B_vec[k] # only 2 digits under . 
   end
   print "\n"  
 end
