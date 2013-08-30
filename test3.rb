@@ -67,7 +67,10 @@ end
   result_B_vec = Hash.new 
 
   fvectors_arr.each_with_index do |h, i|
-    result_B_vec[i] = inner_product_hh(target_h, h)
+    val = inner_product_hh(target_h, h)
+    if (val > 0.0)
+      result_B_vec[i] = val
+    end
   end
 
   # print result directly, without storing. 
