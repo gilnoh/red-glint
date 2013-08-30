@@ -6,8 +6,8 @@
 require 'time' 
 
 arg_check
-
-# first, load the feature vectors. 
+##
+## first, load the feature vectors. 
 t1 = Time.new 
 
 fvectors_arr = Array.new
@@ -43,8 +43,48 @@ t2 = Time.new
 tdiff_1_2 = t2 - t1
 $stderr.puts("Loading complete: time took #{tdiff_1_2}") 
 
-# Using hash, required 7 Gb, with 20 min (1260 secs) 
+# Using hash, required 7 Gb, with 20 min (1260 secs), on 17inch-macbook  
 # Using array, required x.x Gb, with MM min. 
+
+##
+## second, (with the loaded vectors), calculate from - to 
+from = ARGV[1].to_i
+to = ARGV[2].to_i
+
+# sanity chcek 
+if (from < 0)
+  from = 0
+end 
+
+if (to > fvectors_arr.size)
+  to = fvectors_arr.size - 1 
+end 
+
+# actual run 
+(from..to).each do |i|
+  # calculate row i of B matrix. 
+  target_h = fvectors_arr[i]
+  result_B_vec = Hash.new 
+
+  fvectors_arr.each_with_index do |h, i|
+    result_B_vec[i] = inner_product_hh(target_h, h)
+  end
+
+  # print result directly, without storing. 
+  # note that this is "not" normalized. 
+  # index:val format 
+  print "#{i}\t\t"
+  result_B_vec.keys.sort.each do |k|
+    print "#{k}:#{result_B_vec[k]}\t"
+  end
+  print "\n"  
+end
+
+t3 = Time.new 
+tdiff_1_3 = t3 - t1
+tdiff_2_3 = t3 - t2 
+$stderr.puts("Calculated B-matrix rows from #{from} to #{to}. Took #{tdiff_2_3} seconds. Total time till now: #{tdiff_1_3}")
+
 
 BEGIN{
 
@@ -65,4 +105,14 @@ def arg_check
   end
 end
 
+# gets two hash (with float values), and generate inner product
+def inner_product_hh(a,b) 
+  r = 0.0 # float num to be accumulated 
+  a.keys.each do |k|
+    if b[k]
+      r = r + (a[k] * b[k]) 
+    end
+  end
+  return r 
+end 
 }
