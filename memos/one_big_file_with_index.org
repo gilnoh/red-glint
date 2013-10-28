@@ -1,0 +1,32 @@
+-some memo about "one big file" approach of B-matrix 
+
+* Basic idea
+- one big file, with row (line) index. 
+- The file wrapper is written in File_with_row_index.rb 
+
+* Size estimation 
+** test3 uses index:value format 
+0-10: 5184130 bytes (5Mbytes) 
+
+** test3b uses index_delta:value in text format. 
+0-10: 3269409 bytes (3Mbytes) 
+
+** Total (in estimation) 
+- We have 3M features (rows of B matrix) 
+- (* (/ 3.0 10) 3000000) = 900,000 M  
+
+900 G? only that? 
+
+10: 3M
+100: 30M
+1000: 300M
+10,000: 3G 
+100,000: 30G 
+1,000,000: 300G 
+3,000,000: 900G 
+
+So about 1 T only? That's ... interesting. 
+Maybe first 0-10 was very sparse. Let's try 0-100 or 0-1000. 
+Okay. 0-1000 first. 
+
+** 0-1000, for better estimation 
