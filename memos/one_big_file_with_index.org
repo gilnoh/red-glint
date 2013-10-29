@@ -30,3 +30,17 @@ Maybe first 0-10 was very sparse. Let's try 0-100 or 0-1000.
 Okay. 0-1000 first. 
 
 ** 0-1000, for better estimation 
+425M bytes for 1000 rows. 
+3M rows are expected fall between 1 - 2 T bytes. 
+(/ (/ (* 425 3000.0) 1024) 1024)  1.2159 T bytes... prolly, 1.4 or 1.5 TBytes. 
+
+But the time. 7718 seconds! 
+1k: 7718
+10k: 77180
+100k: 771800 
+1m: 7718000 
+
+(/ (/ (/ (* (/ 3000000 1000.0) 7718) 60) 60) 24)
+total 23154000 seconds , 385900 mins, 6431 hours, 267 days!!! 
+
+
