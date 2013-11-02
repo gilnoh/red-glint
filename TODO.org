@@ -1,0 +1,6 @@
+* Test3 
+** TODO make smaller example for future work on air, westy, etc. 
+
+** TODO finish test3c: check identical output to test3b  
+
+* Test4

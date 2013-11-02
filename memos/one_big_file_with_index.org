@@ -4,7 +4,7 @@
 - one big file, with row (line) index. 
 - The file wrapper is written in File_with_row_index.rb 
 
-* Size estimation 
+* Size estimation : Size is Okay! but not time! 
 ** test3 uses index:value format 
 0-10: 5184130 bytes (5Mbytes) 
 
@@ -42,5 +42,7 @@ But the time. 7718 seconds!
 
 (/ (/ (/ (* (/ 3000000 1000.0) 7718) 60) 60) 24)
 total 23154000 seconds , 385900 mins, 6431 hours, 267 days!!! 
+
+
 
 

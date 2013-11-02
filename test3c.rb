@@ -79,7 +79,7 @@ indexed_file = Filewrite_with_row_index.new(OUTFILENAME)
   # (unnormalized B-matrix i-th row) 
   # +index_delta:value \t +index_delta:value ... 
   output_line = "" 
-  temp = sprint "#{i}\t\t"
+  temp = sprintf "%d\t\t", i
   output_line.concat(temp)
 
   lastkey = 0
@@ -91,13 +91,20 @@ indexed_file = Filewrite_with_row_index.new(OUTFILENAME)
   end
   indexed_file.puts(output_line)
 
-  # when "recover" this delta output, we can do this 
+  # when "recover" this output, you can use 
+  # Fileread_with_row_index class.
+  # read_row(i) method will read ith row as one line. 
+
+  # To recover "delta" index format into full "absolute" index value, 
+  # you can do this... 
   # lastkey = 0
   # for each splitted \t 
   # (somehow) scan "keydelta(%d):value(%.2f)"
   # key = lastkey + keydelta
   # vector (hash) [key] = value 
   # update lastkey <- key 
+
+
 end
 
 t3 = Time.new 
