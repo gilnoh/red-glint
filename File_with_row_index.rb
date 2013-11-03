@@ -40,6 +40,7 @@ class Fileread_with_row_index
   # filename 
   attr_reader :data_f
   attr_reader :row_pos_index 
+  attr_reader :count_row
 
   # open file and index file read only, 
   # throw exception if can't open them. 
@@ -55,7 +56,7 @@ class Fileread_with_row_index
     target_pos = @row_pos_index[row_num] 
     raise "no such row: #{row_num}" if (target_pos == nil)
     @data_f.seek(target_pos) 
-    @data_f.readline
+    @data_f.readline.chop # return the row(line) without last \n
   end
   
   private 
@@ -66,5 +67,6 @@ class Fileread_with_row_index
       (row, pos) = line.split("\t")
       @row_pos_index[row.to_i] = pos.to_i 
     end
+    @count_row = @row_pos_index.size()
   end
 end
