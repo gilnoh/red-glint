@@ -1,15 +1,15 @@
+* TODO Test4 - multi-threaded B-matrix generator. use 3c + thread. 
+
 * Run Smaller Example, full cycle. 
-** TODO make test3 output, test3c output. 
-** TODO complete test5, 
-** TODO use test5 to make test3c output in the same format to test3. confirm all equal. 
-  
+** DONE make test3 output, test3c output. 
+** DONE complete test5, 
+** DONE use test5 to make test3c output in the same format to test3. confirm all equal.   
+
 * Test3 
 ** DONE make smaller example for future work on air, westy, etc. 
 
 ** DONE finish test3c: check identical output to test3b  
    
 
-* Test4
-
-* Test5 
-
+* DONE Test5 
+- checking that relative values can be retrieved equivalent to... 

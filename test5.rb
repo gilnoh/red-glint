@@ -19,20 +19,20 @@ fwi = Fileread_with_row_index.new(ARGV[0])
 last_row = fwi.count_row - 1 
 #for i in 0..last_row
 for i in 0..10
+
+  # the folloing fragment shows --- 
+  # how to read a row of (relatively indexed) B matrix into a hash. 
+  # begin ->
   line = fwi.read_row(i)
   (row_id, row_values) = line.split("\t\t")
-  row_hash = read_rvals_to_hash(row_values)
+  row_hash = read_rvals_to_hash(row_values) # this method does 
+  # end <- 
 
   print "#{row_id}\t\t"
   row_hash.keys.sort.each do |k|
     printf "%d:%.2f\t", k, row_hash[k]
   end
   print "\n"
-#  result_B_vec.keys.sort.each do |k|
-#    #print "#{k}:#{result_B_vec[k]}\t"
-#    printf "%d:%.2f\t", k, result_B_vec[k] # only 2 digits under . 
-#  end
-#  print "\n"  
 
 end
 
