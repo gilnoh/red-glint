@@ -70,3 +70,24 @@ class Fileread_with_row_index
     @count_row = @row_pos_index.size()
   end
 end
+
+# this class provides a merger for multiple row-indexed files into one
+# (bigger) row-indexed file. 
+class Simple_merger
+  def initialize(filenames_arr, output_filename)
+    @writer = Filewrite_with_row_index.new(output_filename)
+    @filenames = filenames_arr 
+  end
+
+  # this method starts actual merge. 
+  def merge
+    @filenames.each do |f_name|
+      reader = Fileread_with_row_index.new(f_name)
+      last_row = reader.count_row - 1
+      for i in 0..last_row 
+        line = reader.read_row(i)
+        @writer.puts(line)
+      end
+    end
+  end
+end
