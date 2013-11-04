@@ -17,8 +17,8 @@ fwi = Fileread_with_row_index.new(ARGV[0])
 # all right, try to convert all to absolute index
 # (only possible for a small example)
 last_row = fwi.count_row - 1 
-#for i in 0..last_row
-for i in 0..10
+for i in 0..last_row
+#for i in 0..10
 
   # the folloing fragment shows --- 
   # how to read a row of (relatively indexed) B matrix into a hash. 

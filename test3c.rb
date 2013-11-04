@@ -9,7 +9,8 @@ require 'time'
 require_relative 'File_with_row_index'
 
 # GLOBAL constant 
-OUTFILENAME = "test3.out" 
+OUTFILE_PREFIX = "B_matrix"
+# no longer constant #OUTFILENAME = "test3.out" 
 
 arg_check
 ##
@@ -56,9 +57,10 @@ end
 if (to > fvectors_arr.size)
   to = fvectors_arr.size - 1 
 end 
-
-# open Filewrite with inde.  
-indexed_file = Filewrite_with_row_index.new(OUTFILENAME)
+outfilename = sprintf("%s.%07d_to_%07d.out", OUTFILE_PREFIX, from, to)
+# open Filewrite with index.  
+#indexed_file = Filewrite_with_row_index.new(OUTFILENAME)
+indexed_file = Filewrite_with_row_index.new(outfilename)
 # now use indexed_file.puts() to record. 
 
 # actual run 
