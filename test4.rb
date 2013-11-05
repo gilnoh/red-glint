@@ -36,17 +36,9 @@ File.open(ARGV[0]).each_line do |line|
     end
   end
   $fvectors_arr[id]= Hash[*tmp] # as hash 
-  #$fvectors_arr[id]= tmp # as array 
 end
 
-# dcode, walk over the fvector_arr, where each member is a hash 
-#$fvectors_arr.each_with_index do |h, i|
-#  print "#{i}\t"
-#  h.keys.sort.each do |k|
-#    print("#{k}:#{h[k]}\t")
-#  end
-#  print "\n" 
-#end 
+$fvectors_arr.freeze # just in case, since we will go multi-thread 
 
 t2 = Time.new 
 tdiff_1_2 = t2 - t1
