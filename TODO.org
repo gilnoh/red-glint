@@ -1,20 +1,27 @@
 * TODO small scale test on pool pc & grid server 
 ** single-thread B-maker
-*** TODO make real worker, single thread. 
+*** DONE spin off real worker, single thread. 
 - calc_B_st.rb (calculation, B matrix, single thread) 
+*** TOOD? improvements? 
 
 ** Pool check: 
 *** TODO run a set of numbers and check their time. 
-- 100: 
-- 1000: 
+- 100: running...pool2
+- 1000: running...pool3 
+- 10k: 
 
 ** Grid check: how much does it takes
 *** TODO run a set of numbers and check their time. 
-- 100: 
-- 1000: 
+- 100: running ... node25
+- 1000: running ... node26
+- 10k: running ... node27 
+ 
 *** TODO how to force/limit usage of slots per computer (qsub) 
 
 *** TODO check basic Hadoop. -- why not run just a Hadoop stream? 
+
+
+* TODO write the "scattered B-matrix merger" 
 
 * DONE Test4 - multi-threaded B-matrix generator. use 3c + thread. 
 
