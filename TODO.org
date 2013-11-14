@@ -1,38 +1,58 @@
-* TODO small scale test on pool pc & grid server 
-** single-thread B-maker
-*** DONE spin off real worker, single thread. 
-- calc_B_st.rb (calculation, B matrix, single thread) 
-*** TOOD? improvements? 
+currently working on "merger" 
 
-** Pool check: 
-*** TODO run a set of numbers and check their time. 
-- 100: running...pool2
-- 1000: running...pool3 
-- 10k: 
-
-** Grid check: how much does it takes
-*** TODO run a set of numbers and check their time. 
-- 100: running ... node25
-- 1000: running ... node26
-- 10k: running ... node27 
- 
+* Hadoop / GridEngine? 
 *** TODO how to force/limit usage of slots per computer (qsub) 
 
 *** TODO check basic Hadoop. -- why not run just a Hadoop stream? 
 
 
+* TODO small scale test on pool pc & grid server 
+** single-thread B-maker
+*** DONE spin off real worker, single thread. 
+- calc_B_st.rb (calculation, B matrix, single thread) 
+
+** Pool check: 
+*** TODO run a set of numbers and check their time. 
+- 100: 892, 445, 1338 (pool2) 
+- 1000: 891, 5030, 5921 (pool3) 
+- 10k: 
+
+** Grid check: how much does it takes
+*** TODO run a set of numbers and check their time. 
+- 100: 2310, 762, 3073 (node25) 
+- 1000: 2429, 10451, 12881 (node26) 
+- 10k: 2290, running ... node27 
+
+** Time estimation? 
+(/ 3000000 10000) 300 10k pieces? 
+(/ 3000000 5000) 600 5k peices? 
+
+
 * TODO write the "scattered B-matrix merger" 
+- merge_test directory at Ellington. 
+** outline of the process 
+- a) 0 - 5k, with test3 (absolute feature index, no row index)  
+- b) 0 - 5k, with calc_B_st.rb ---> recover_test ---> concur to a) 
+- c) 0-1k, 1k-4k, 4k-5k, with calcB_st.rb ---> merger --> recover_test --> a) 
+** Progress (sequentially) 
+*** TODO (running) 5k with test3 (Ellington) 
+*** TODO (running) 5k with calc_B_st.rb 
+*** TODO scattered run on pool. 
+
 
 * DONE Test4 - multi-threaded B-matrix generator. use 3c + thread. 
+
 
 * DONE Run Smaller Example, full cycle. 
 ** DONE make test3 output, test3c output. 
 ** DONE complete test5 (relative index -> absolute index) 
 ** DONE use test5 to make test3c output in the same format to test3. confirm all equal.   
 
+
 * Test3 
 ** DONE make smaller example for future work on air, westy, etc. 
 ** DONE finish test3c: check identical output to test3b  
    
+
 * DONE Test5 
 - checking that relative values can be retrieved equivalent to... 
