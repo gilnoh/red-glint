@@ -1,5 +1,26 @@
 currently working on "merger" 
 
+* TODO write the "scattered B-matrix merger" 
+- merge_test directory at Ellington. 
+** outline of the process 
+- a) 0 - 5k, with test3 (absolute feature index, no row index)  
+- b) 0 - 5k, with calc_B_st.rb ---> recover_test ---> concur to a) 
+- c) 0-1k, 1k-4k, 4k-5k, with calcB_st.rb ---> merger --> recover_test --> a) 
+** Making test files 
+*** TODO (running) 5k with test3 (pool02) 
+*** DONE (running) 5k with calc_B_st.rb
+*** DONE scattered run on pool. (c) 
+** outline of a merger 
+- many .out files in, list out first-last, work only when no gap(? yea, so) 
+- previous step resulted "order" of files (or, just sorted list would be enough, if they have "ordered" sequence. --- add one more 0 in number out) 
+- call Simple merger (File_with_row_index.rb) with the ordered list. It handles and outputs as one file. 
+*** TODO add one more 0 at file name, at calc_B_st (for full scale run) 
+** Write merger 
+- (Any memo) 
+** Write "recoverer" 
+- read line-indexed matrix with relative index; 
+- outputs absolute indexed; (mostly already done with test5, I guess...)
+
 * Hadoop / GridEngine? 
 *** TODO how to force/limit usage of slots per computer (qsub) 
 
@@ -28,16 +49,6 @@ currently working on "merger"
 (/ 3000000 5000) 600 5k peices? 
 
 
-* TODO write the "scattered B-matrix merger" 
-- merge_test directory at Ellington. 
-** outline of the process 
-- a) 0 - 5k, with test3 (absolute feature index, no row index)  
-- b) 0 - 5k, with calc_B_st.rb ---> recover_test ---> concur to a) 
-- c) 0-1k, 1k-4k, 4k-5k, with calcB_st.rb ---> merger --> recover_test --> a) 
-** Progress (sequentially) 
-*** TODO (running) 5k with test3 (Ellington) 
-*** TODO (running) 5k with calc_B_st.rb 
-*** TODO scattered run on pool. 
 
 
 * DONE Test4 - multi-threaded B-matrix generator. use 3c + thread. 
